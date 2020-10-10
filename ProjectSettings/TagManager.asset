@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CardTower01
+  - CardTower03
+  - CardTower02
+  - CardTower04
+  - Tile
+  - Shovel
+  - MoveTower
   layers:
   - Default
   - TransparentFX

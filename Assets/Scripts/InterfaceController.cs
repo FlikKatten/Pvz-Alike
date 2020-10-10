@@ -7,7 +7,6 @@ public class InterfaceController : MonoBehaviour
 {
     public Text scoreText, moneyText;
     public static int moneyCount, scoreCount;
-    public static int towerValue01 = 25, towerValue02 = 50, towerValue03 = 75, towerValue04 = 100;
 
     void Start()
     {

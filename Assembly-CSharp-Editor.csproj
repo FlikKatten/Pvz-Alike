@@ -97,15 +97,6 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
-    <Compile Include="Assets\Scripts\ActionGameFramework\Audio\Editor\HealthChangeAudioSourceEditor.cs" />
-    <Compile Include="Assets\Scripts\ActionGameFramework\Projectiles\Editor\BallisticProjectileEditor.cs" />
-    <Compile Include="Assets\Scripts\Core\Camera\Editor\CameraRigEditor.cs" />
-    <Compile Include="Assets\Scripts\Core\Utilities\Editor\HexPointTests.cs" />
-    <Compile Include="Assets\Scripts\Core\Utilities\Editor\SerializableInterfaceDrawer.cs" />
-    <Compile Include="Assets\Scripts\TowerDefense\Level\Editor\WaveEditor.cs" />
-    <Compile Include="Assets\Scripts\TowerDefense\MeshCreator\Editor\AreaMeshCreatorEditor.cs" />
-    <Compile Include="Assets\Scripts\TowerDefense\Nodes\Editor\NodeEditor.cs" />
-    <Compile Include="Assets\Scripts\TowerDefense\Targetting\Editor\TargetterEditor.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

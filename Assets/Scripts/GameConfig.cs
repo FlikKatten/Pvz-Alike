@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameConfig : MonoBehaviour
 {
-    public static bool shovelEnabled;
-    public static GameObject currentTower, currentCard;
+    public static GameObject currentTower;
     
     void Start()
     {

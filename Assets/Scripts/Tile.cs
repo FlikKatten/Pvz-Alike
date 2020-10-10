@@ -6,26 +6,43 @@ public class Tile : MonoBehaviour
 {
     private bool isEmpty = true;
 
-    void Start()
+    void OnCollisionEnter(Collision c)
     {
-
-    }
-
-    void Update()
-    {
-        //RaycastHit3D hit = Physics.Raycast(transform.position, Vector3.up, 0.1f, LayerMask.GetMask("Tower"));
-        //isEmpty = hit.collider == null;
+        if(c.gameObject.tag == "Tower")
+        {
+            isEmpty = false;
+        }
+        else
+        {
+            isEmpty = true;
+        }
     }
 
     void OnMouseDown()
     {
-        int tempPrice = GameConfig.currentTower.GetComponent<Towers>().price;
-
-        if (gameObject.tag == "Tile" && tempPrice <= InterfaceController.moneyCount)
+        if (gameObject.tag == "Tile" && isEmpty)
         {
-            Instantiate(GameConfig.currentTower, transform.position, transform.rotation);
-            InterfaceController.moneyCount = InterfaceController.moneyCount - tempPrice;
-            GameConfig.currentTower = null;
+            //variavel hospeda valores de preço das torres
+
+            if (Cards.canCreate)
+            {
+                int tempPrice = GameConfig.currentTower.GetComponent<Towers>().price;
+
+                if (tempPrice <= InterfaceController.moneyCount)
+                {
+                    Instantiate(GameConfig.currentTower, transform.position, transform.rotation);
+                    InterfaceController.moneyCount -= tempPrice;
+                    GameConfig.currentTower = null;
+                    Cards.canCreate = false;
+                }
+            }
+            else if(Cards.canMoveTower)
+            {
+                Vector3 tempPosition = gameObject.transform.position;
+                Towers.tempTowerToMove.transform.position = tempPosition;
+                Cards.canMoveTower = false;
+                Towers.tempTowerToMove = null;
+            }
         }
     }
 }

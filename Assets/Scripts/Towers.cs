@@ -5,6 +5,7 @@ using UnityEngine;
 public class Towers : MonoBehaviour
 {
     public int price;
+    public static GameObject tempTowerToMove;
 
     void Start()
     {
@@ -14,5 +15,10 @@ public class Towers : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnMouseDown()
+    {
+        if (Cards.canMoveTower){tempTowerToMove = gameObject;}
     }
 }
