@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9D57D126-4408-EDE7-E162-9F0F6DF6D337}</ProjectGuid>
+    <ProjectGuid>{25B0D5CA-167D-6294-527D-C7343EB7C791}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -279,6 +279,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\ScorePanel.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\TowerDefenseInputSchemeSwitcher.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\UrlOpen.cs" />
+    <Compile Include="Assets\Scripts\Towers.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -865,31 +866,31 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/logonrmlocal/Desktop/Projeto-SalaDaElétrica/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/logonrmlocal/Documents/GitHub/Projeto-SalaDaEl-trica/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

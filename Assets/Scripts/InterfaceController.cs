@@ -12,7 +12,7 @@ public class InterfaceController : MonoBehaviour
     void Start()
     {
         scoreCount = 0;
-        moneyCount = 100;
+        moneyCount = 900;
     }
 
     void Update()

@@ -6,43 +6,24 @@ public class Cards : MonoBehaviour
 {
     private bool canCreate;
 
-    public GameObject prefabTower01;
+    public GameObject prefabTower01, prefabTower02, prefabTower03, prefabTower04;
 
     void OnMouseDown()
     {
-        print("clique");
-
-        if(gameObject.tag == "CardTower01")
+        switch (gameObject.tag)
         {
-            if (InterfaceController.moneyCount >= InterfaceController.towerValue01)
-            {
-                InterfaceController.moneyCount = InterfaceController.moneyCount - 25;
+            case "CardTower01":
                 GameConfig.currentTower = prefabTower01;
-            }
-        }
-
-        if (gameObject.tag == "CardTower02")
-        {
-            if (InterfaceController.moneyCount >= InterfaceController.towerValue02)
-            {
-                InterfaceController.moneyCount = InterfaceController.moneyCount - 50;
-            }
-        }
-
-        if (gameObject.tag == "CardTower03")
-        {
-            if (InterfaceController.moneyCount >= InterfaceController.towerValue03)
-            {
-                InterfaceController.moneyCount = InterfaceController.moneyCount - 75;
-            }
-        }
-
-        if (gameObject.tag == "CardTower04")
-        {
-            if (InterfaceController.moneyCount >= InterfaceController.towerValue04)
-            {
-                InterfaceController.moneyCount = InterfaceController.moneyCount - 100;
-            }
+                break;
+            case "CardTower02":
+                GameConfig.currentTower = prefabTower02;
+                break;
+            case "CardTower03":
+                GameConfig.currentTower = prefabTower03;
+                break;
+            case "CardTower04":
+                GameConfig.currentTower = prefabTower04;
+                break;
         }
     }
 }

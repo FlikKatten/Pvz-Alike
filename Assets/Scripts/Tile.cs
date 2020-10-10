@@ -8,7 +8,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -19,11 +19,12 @@ public class Tile : MonoBehaviour
 
     void OnMouseDown()
     {
-        print("a");
+        int tempPrice = GameConfig.currentTower.GetComponent<Towers>().price;
 
-        if(gameObject.tag == "Tile")
+        if (gameObject.tag == "Tile" && tempPrice <= InterfaceController.moneyCount)
         {
             Instantiate(GameConfig.currentTower, transform.position, transform.rotation);
+            InterfaceController.moneyCount = InterfaceController.moneyCount - tempPrice;
             GameConfig.currentTower = null;
         }
     }
