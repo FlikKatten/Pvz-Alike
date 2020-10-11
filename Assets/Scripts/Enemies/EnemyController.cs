@@ -60,15 +60,19 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case "Shield":
-                if(gameObject.tag == "Enemy01")
+                switch (gameObject.tag)
                 {
-                    ghostRenderer.material = materials[1];
+                    case "Enemy01":
+                        ghostRenderer.material = materials[1];
+                        break;
+                    case "Enemy02":
+                        Destroy(c.gameObject);
+                        break;
+                    case "Enemy03":
+                        StartCoroutine(Attack(coroutineTime));
+                        Destroy(c.gameObject);
+                        break;
                 }
-                else
-                {
-                    canWalk = false;
-                }
-
                 break;
             case "Laser":
                 Destroy(gameObject);

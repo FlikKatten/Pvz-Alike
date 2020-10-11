@@ -9,13 +9,15 @@ TagManager:
   - CardTower02
   - CardTower04
   - Tile
-  - Shovel
   - MoveTower
   - Tower
   - Enemy01
   - Enemy02
   - Enemy03
   - Enemy04
+  - Shield
+  - Laser
+  - ShieldController
   layers:
   - Default
   - TransparentFX

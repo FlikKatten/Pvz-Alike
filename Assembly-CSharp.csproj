@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Generators\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\Towers\Towers.cs" />
     <Compile Include="Assets\Scripts\UI\Cards.cs" />
     <Compile Include="Assets\Scripts\UI\InterfaceController.cs" />
