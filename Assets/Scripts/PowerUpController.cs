@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-    public GameObject shield;
+    public GameObject prefab;
 
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Enemy01"
             || c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03")
         {
-            shield.SetActive(true);
+            prefab.SetActive(true);
         }
     }
 
-    void onTriggerExit(Collider c)
+    void OnTriggerExit(Collider c)
     {
         if (c.gameObject.tag == "Enemy01"
             || c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03")
         {
-            shield.SetActive(false);
+            prefab.SetActive(false);
         }
     }
 }

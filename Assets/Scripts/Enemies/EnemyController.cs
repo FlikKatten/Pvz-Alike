@@ -19,13 +19,11 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        float currentSpeed = canWalk ? speed : 0;
+
         if (canWalk)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(Vector3.zero);
         }
 
         //retirando pontos do jogador quando algum inimigo chegue até sua zona após o tabuleiro
@@ -44,7 +42,7 @@ public class EnemyController : MonoBehaviour
                 switch (gameObject.tag)
                 {
                     case "Enemy01":
-                        ghostRenderer.material = materials[1];
+                        //ghostRenderer.material = materials[1];
                         break;
                     case "Enemy02":
                         Destroy(c.gameObject);
@@ -63,7 +61,7 @@ public class EnemyController : MonoBehaviour
                 switch (gameObject.tag)
                 {
                     case "Enemy01":
-                        ghostRenderer.material = materials[1];
+                        //ghostRenderer.material = materials[1];
                         break;
                     case "Enemy02":
                         Destroy(c.gameObject);
@@ -75,12 +73,12 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case "Laser":
-                Destroy(gameObject);
+                Destroy(gameObject, destroyTime);
                 break;
             case "CannonBall":
                 if (gameObject.tag == "Enemy01")
                 {
-                    ghostRenderer.material = materials[1];
+                    //ghostRenderer.material = materials[1];
                 }
                 break;
         }
@@ -90,7 +88,7 @@ public class EnemyController : MonoBehaviour
     {
         if(gameObject.tag == "Enemy01")
         {
-            ghostRenderer.material = materials[0];
+            //ghostRenderer.material = materials[0];
         }
     }
 

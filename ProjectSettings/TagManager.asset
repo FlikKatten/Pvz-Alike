@@ -18,6 +18,7 @@ TagManager:
   - Shield
   - Laser
   - ShieldController
+  - LaserController
   layers:
   - Default
   - TransparentFX
