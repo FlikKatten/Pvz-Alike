@@ -63,12 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Cards.cs" />
-    <Compile Include="Assets\Scripts\DragController.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\GameConfig.cs" />
-    <Compile Include="Assets\Scripts\InterfaceController.cs" />
-    <Compile Include="Assets\Scripts\Tile.cs" />
-    <Compile Include="Assets\Scripts\Towers.cs" />
+    <Compile Include="Assets\Scripts\Generators\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Towers\Towers.cs" />
+    <Compile Include="Assets\Scripts\UI\Cards.cs" />
+    <Compile Include="Assets\Scripts\UI\InterfaceController.cs" />
+    <Compile Include="Assets\Scripts\UI\Tile.cs" />
     <None Include="Assets\Fonts\Roboto\LICENSE.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

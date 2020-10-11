@@ -11,6 +11,7 @@ TagManager:
   - Tile
   - Shovel
   - MoveTower
+  - Tower
   layers:
   - Default
   - TransparentFX
