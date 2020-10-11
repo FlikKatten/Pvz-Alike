@@ -12,6 +12,10 @@ TagManager:
   - Shovel
   - MoveTower
   - Tower
+  - Enemy01
+  - Enemy02
+  - Enemy03
+  - Enemy04
   layers:
   - Default
   - TransparentFX

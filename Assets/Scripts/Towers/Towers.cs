@@ -19,6 +19,10 @@ public class Towers : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (Cards.canMoveTower){tempTowerToMove = gameObject;}
+        if (Cards.canMoveTower)
+        {
+            tempTowerToMove = gameObject;
+            Cards.canCreate = false;
+        }
     }
 }

@@ -185,9 +185,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2645710603066630117}
   - component: {fileID: 7689241434398096764}
-  m_Layer: 14
+  - component: {fileID: -297108819650248936}
+  - component: {fileID: -5432371511600479519}
+  m_Layer: 0
   m_Name: Enemy04
-  m_TagString: Untagged
+  m_TagString: Enemy04
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +222,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+  destroyTime: 1
+  playerZone: 8
+  bulletLoopTime: 5
+  coroutineTime: 1
+  damage: 25
+  materials: []
+  ghostRenderer: {fileID: 0}
+  bulletPrefab: {fileID: 3838275068385842081, guid: 85a26e1712343214ea30b64327b3f824,
+    type: 3}
+--- !u!65 &-297108819650248936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640187075855391231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.655767, z: 0.19419312}
+  m_Center: {x: 0, y: 0.8278835, z: -0.7230183}
+--- !u!54 &-5432371511600479519
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640187075855391231}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2640698896951703155
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2641392491036767107}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

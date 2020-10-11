@@ -168,7 +168,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4098126089334304}
   - component: {fileID: 4571803188047408932}
-  m_Layer: 9
+  - component: {fileID: 8536394621119847211}
+  - component: {fileID: 5888945189182112618}
+  m_Layer: 0
   m_Name: Tower02
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -204,3 +206,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 50
+--- !u!65 &8536394621119847211
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357704856333272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8324629, y: 1.7818854, z: 1.8324634}
+  m_Center: {x: -0.04103683, y: 0.83648634, z: 0.017587468}
+--- !u!54 &5888945189182112618
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357704856333272}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0

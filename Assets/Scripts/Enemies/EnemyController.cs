@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed, destroyTime, playerZone;
+    public float speed, destroyTime, playerZone, bulletLoopTime, coroutineTime;
     public int damage;
     public Material[] materials;
     public Renderer ghostRenderer;
+    public GameObject bulletPrefab;
 
     private bool canWalk = true;
 
@@ -21,6 +22,10 @@ public class EnemyController : MonoBehaviour
         if (canWalk)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector3.zero);
         }
 
         //retirando pontos do jogador quando algum inimigo chegue até sua zona após o tabuleiro
@@ -42,13 +47,15 @@ public class EnemyController : MonoBehaviour
                         ghostRenderer.material = materials[1];
                         break;
                     case "Enemy02":
-                        Destroy(c);
+                        Destroy(c.gameObject);
                         break;
                     case "Enemy03":
-                        print(gameObject.tag);
+                        StartCoroutine(Attack(coroutineTime));
+                        Destroy(c.gameObject);
                         break;
                     case "Enemy04":
-                        print(gameObject.tag);
+                        StartCoroutine(FlyAttack(bulletPrefab, coroutineTime, bulletLoopTime));
+                        Destroy(c.gameObject);
                         break;
                 }
                 break;
@@ -81,5 +88,27 @@ public class EnemyController : MonoBehaviour
         {
             ghostRenderer.material = materials[0];
         }
+    }
+
+    IEnumerator FlyAttack(GameObject gb, float f, float l)
+    {
+        canWalk = false;
+        for (int i = 0; i <= l; i++)
+        {
+            Instantiate(gb, transform.position, transform.rotation);
+
+            yield return new WaitForSeconds(f);
+
+            StartCoroutine(FlyAttack(gb, f, l));
+        }
+
+        canWalk = true;
+    }
+
+    IEnumerator Attack(float f)
+    {
+        canWalk = false;
+        yield return new WaitForSeconds(f);
+        canWalk = true;
     }
 }

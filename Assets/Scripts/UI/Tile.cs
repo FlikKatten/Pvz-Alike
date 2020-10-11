@@ -30,14 +30,15 @@ public class Tile : MonoBehaviour
 
                 if (tempPrice <= InterfaceController.moneyCount)
                 {
-                    Instantiate(GameConfig.currentTower, transform.position, transform.rotation);
+                    Instantiate(GameConfig.currentTower, transform.position, GameConfig.currentTower.transform.rotation);
                     InterfaceController.moneyCount -= tempPrice;
                     GameConfig.currentTower = null;
-                    Cards.canCreate = false;
                 }
+
+                Cards.canCreate = false;
             }
             else if(Cards.canMoveTower)
-            {
+            { 
                 Vector3 tempPosition = gameObject.transform.position;
                 Towers.tempTowerToMove.transform.position = tempPosition;
                 Cards.canMoveTower = false;
