@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public Material[] materials;
     public Renderer ghostRenderer;
-    public GameObject bulletPrefab;
+    public GameObject bulletPrefab, dropPosition;
 
     private bool canWalk = true;
 
@@ -48,12 +48,10 @@ public class EnemyController : MonoBehaviour
                         Destroy(c.gameObject);
                         break;
                     case "Enemy03":
-                        StartCoroutine(Attack(coroutineTime));
-                        Destroy(c.gameObject);
+                        StartCoroutine(Attack(coroutineTime, c.gameObject));
                         break;
                     case "Enemy04":
-                        StartCoroutine(FlyAttack(bulletPrefab, coroutineTime, bulletLoopTime));
-                        Destroy(c.gameObject);
+                        StartCoroutine(FlyAttack(coroutineTime, bulletLoopTime, c.gameObject));
                         break;
                 }
                 break;
@@ -67,13 +65,9 @@ public class EnemyController : MonoBehaviour
                         Destroy(c.gameObject);
                         break;
                     case "Enemy03":
-                        StartCoroutine(Attack(coroutineTime));
-                        Destroy(c.gameObject);
+                        StartCoroutine(Attack(coroutineTime, c.gameObject));
                         break;
                 }
-                break;
-            case "Laser":
-                Destroy(gameObject, destroyTime);
                 break;
             case "CannonBall":
                 if (gameObject.tag == "Enemy01")
@@ -92,25 +86,26 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    IEnumerator FlyAttack(GameObject gb, float f, float l)
+    IEnumerator FlyAttack(float f, float l, GameObject gb)
     {
         canWalk = false;
+
         for (int i = 0; i <= l; i++)
         {
-            Instantiate(gb, transform.position, transform.rotation);
-
+            Instantiate(bulletPrefab, dropPosition.transform.position, transform.rotation);
             yield return new WaitForSeconds(f);
-
-            StartCoroutine(FlyAttack(gb, f, l));
         }
 
+        Destroy(gb);
         canWalk = true;
     }
 
-    IEnumerator Attack(float f)
+    IEnumerator Attack(float f, GameObject gb)
     {
         canWalk = false;
         yield return new WaitForSeconds(f);
+        Destroy(gb);
+
         canWalk = true;
     }
 }

@@ -12,6 +12,13 @@ public class PowerUpController : MonoBehaviour
             || c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03")
         {
             prefab.SetActive(true);
+
+            if(gameObject.tag == "LaserController")
+            {
+                Destroy(c.gameObject);
+                InterfaceController.scoreCount += 250;
+                StartCoroutine(LaserControl());
+            }
         }
     }
 
@@ -22,5 +29,11 @@ public class PowerUpController : MonoBehaviour
         {
             prefab.SetActive(false);
         }
+    }
+
+    IEnumerator LaserControl()
+    {
+        yield return new WaitForSeconds(0.5f);
+        prefab.SetActive(false);
     }
 }

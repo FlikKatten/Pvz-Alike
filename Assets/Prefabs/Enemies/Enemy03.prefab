@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d299a849eecc7b8419a00d5822d5aa54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.1
   destroyTime: 1
   playerZone: 8
   bulletLoopTime: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   materials: []
   ghostRenderer: {fileID: 0}
   bulletPrefab: {fileID: 0}
+  dropPosition: {fileID: 0}
 --- !u!65 &-618271686877779363
 BoxCollider:
   m_ObjectHideFlags: 0

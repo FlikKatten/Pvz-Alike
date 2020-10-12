@@ -6,16 +6,14 @@ public class Tile : MonoBehaviour
 {
     private bool isEmpty = true;
 
-    void OnCollisionEnter(Collision c)
+    void OnCollisionEnter()
     {
-        if(c.gameObject.tag == "Tower")
-        {
-            isEmpty = false;
-        }
-        else
-        {
-            isEmpty = true;
-        }
+        isEmpty = false;
+    }
+
+    void OnCollisionExit()
+    {
+        isEmpty = true;
     }
 
     void OnMouseDown()
