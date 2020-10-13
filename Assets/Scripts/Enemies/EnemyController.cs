@@ -9,24 +9,34 @@ public class EnemyController : MonoBehaviour
     public Material[] materials;
     public Renderer ghostRenderer;
     public GameObject bulletPrefab, dropPosition, explosionPrefab;
+    public AudioClip[] clips;
 
     private bool canWalk = true;
+    private AudioSource audioS;
+
+    void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+
+        if (gameObject.tag == "Enemy01")
+        {
+            ghostRenderer.material = materials[0];
+        }
+    }
 
     void Update()
     {
         float currentSpeed = canWalk ? speed : 0;
 
-        if (canWalk)
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
+        if (canWalk){transform.Translate(Vector3.forward * speed * Time.deltaTime);}
 
         /*retirando pontos do jogador quando algum 
         inimigo chegue até sua zona após o tabuleiro*/
-        if(transform.position.x >= playerZone)
+        if(transform.position.x == playerZone)
         {
-            Destroy(gameObject, destroyTime);
+            PlaySound(0);
             InterfaceController.scoreCount -= damage;
+            Destroy(gameObject, destroyTime);
         }
     }
 
@@ -37,15 +47,14 @@ public class EnemyController : MonoBehaviour
             case "Tower":
                 switch (gameObject.tag)
                 {
-                    case "Enemy01":
-                        ghostRenderer.material = materials[1];
-                        break;
                     case "Enemy02":
                         Destroy(c.gameObject);
+                        PlaySound(2);
                         /*retirando score do jogador quando este perde suas torres*/
                         InterfaceController.scoreCount -= damage;
                         break;
                     case "Enemy03":
+                        canWalk = false;
                         RandonAttack(c.gameObject);
                         StartCoroutine(CoinCatch(coroutineTime));
                         break;
@@ -57,9 +66,6 @@ public class EnemyController : MonoBehaviour
             case "Shield":
                 switch (gameObject.tag)
                 {
-                    case "Enemy01":
-                        ghostRenderer.material = materials[1];
-                        break;
                     case "Enemy02":
                         Destroy(c.gameObject);
                         break;
@@ -69,18 +75,31 @@ public class EnemyController : MonoBehaviour
                         break;
                 }
                 break;
-            case "CannonBall":
-                if (gameObject.tag == "Enemy01")
-                {
-                    ghostRenderer.material = materials[1];
-                }
-                break;
+        }
+    }
+
+    void OnTriggerStay(Collider c)
+    {
+        if (c.gameObject.tag == "Tower" || c.gameObject.tag == "Shield")
+        {
+            if (gameObject.tag == "Enemy01")
+            {
+                ghostRenderer.material = materials[1];
+            }
         }
     }
 
     void OnTriggerExit(Collider c)
     {
-        if(gameObject.tag == "Enemy01"){ghostRenderer.material = materials[0];}
+        if (gameObject.tag == "Enemy01")
+        {
+            if (c.gameObject.tag == "Tower")
+            {
+                Attack(c.gameObject);
+            }
+
+            ghostRenderer.material = materials[0];
+        }
     }
 
     IEnumerator FlyAttack(float f, GameObject gb)
@@ -90,6 +109,7 @@ public class EnemyController : MonoBehaviour
         for (int i = 0; i <= bulletLoopTime; i++)
         {
             Instantiate(bulletPrefab, dropPosition.transform.position, transform.rotation);
+            PlaySound(1);
             yield return new WaitForSeconds(f);
         }
 
@@ -97,14 +117,11 @@ public class EnemyController : MonoBehaviour
         canWalk = true;
     }
 
-    IEnumerator Attack(float f, GameObject gb)
+    void Attack(GameObject gb)
     {
-
-        canWalk = false;
-        yield return new WaitForSeconds(f);
+        PlaySound(2);
         Destroy(gb);
         InterfaceController.scoreCount -= damage;
-        canWalk = true;
     }
 
     void RandonAttack(GameObject gb)
@@ -114,6 +131,7 @@ public class EnemyController : MonoBehaviour
 
         int i = Random.Range(0, 2);
 
+        //este inimigo possui uma variedade de 'ataques'
         switch (i)
         {
             case 1:
@@ -133,5 +151,20 @@ public class EnemyController : MonoBehaviour
 
         explosionPrefab.SetActive(false);
         canWalk = true;
+    }
+
+    void PlaySound(int a)
+    {
+        audioS.clip = clips[a];
+        audioS.Play();
+    }
+
+    void OnDestroy()
+    {
+        if(gameObject == CannonBall.currentTarget)
+        {
+            CannonBall.currentTarget = null;
+            CannonController.targetFind = false;
+        }
     }
 }

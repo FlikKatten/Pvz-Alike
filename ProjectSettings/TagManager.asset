@@ -20,6 +20,7 @@ TagManager:
   - ShieldController
   - LaserController
   - Cop
+  - Bullet
   layers:
   - Default
   - TransparentFX

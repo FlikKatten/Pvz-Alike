@@ -5,10 +5,15 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour
 {
     public float speed, distance, attackRange;
-
     public static GameObject currentTarget;
 
-    Vector3 attackPosition;
+    private Vector3 attackPosition;
+    private AudioSource audioS;
+
+    void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -20,6 +25,12 @@ public class CannonBall : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position,
                 attackPosition, speed * Time.deltaTime);
+        }
+
+        if(currentTarget == null)
+        {
+            Destroy(gameObject);
+            CannonController.targetFind = false;
         }
     }
 
@@ -35,9 +46,10 @@ public class CannonBall : MonoBehaviour
             Destroy(c.gameObject);
             currentTarget = null;
             CannonController.targetFind = false;
-            Destroy(gameObject);
 
-            InterfaceController.scoreCount += 250;
+            audioS.Play();
+            InterfaceController.scoreCount += 25;
+            Destroy(gameObject);
         }
     }
 }

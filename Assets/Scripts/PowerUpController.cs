@@ -5,6 +5,14 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     public GameObject prefab;
+    public AudioClip[] clips;
+
+    private AudioSource audioS;
+
+    void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider c)
     {
@@ -15,9 +23,14 @@ public class PowerUpController : MonoBehaviour
 
             if(gameObject.tag == "LaserController")
             {
+                PlaySound(1);
                 Destroy(c.gameObject);
-                InterfaceController.scoreCount += 250;
+                InterfaceController.scoreCount += 25;
                 StartCoroutine(LaserControl());
+            }
+            else
+            {
+                PlaySound(0);
             }
         }
     }
@@ -35,5 +48,11 @@ public class PowerUpController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         prefab.SetActive(false);
+    }
+
+    void PlaySound(int a)
+    {
+        audioS.clip = clips[a];
+        audioS.Play();
     }
 }

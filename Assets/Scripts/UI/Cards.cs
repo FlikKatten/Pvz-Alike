@@ -8,6 +8,14 @@ public class Cards : MonoBehaviour
     public GameObject prefabTower01, prefabTower02, prefabTower03, prefabTower04;
     public static bool canMoveTower, canCreate, blockCard;
     public float coroutineTime;
+    public AudioClip[] clips;
+    
+    private AudioSource audioS;
+
+    void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -47,11 +55,13 @@ public class Cards : MonoBehaviour
 
     IEnumerator ChangeTag(float f, GameObject gb)
     {
+        /*esta funcao muda a tag da carta 
+        impossibilitando que o jogador a selecione*/
+
         Image image= this.GetComponent<Image>();
         var tempColor = image.color;
         tempColor.a = 0.5f;
         image.color = tempColor;
-
 
         string originalTag = gameObject.tag;
         gameObject.tag = "Untagged";
@@ -68,22 +78,27 @@ public class Cards : MonoBehaviour
 
     void OnMouseDown()
     {
-        //verificando a carta selecionada e atribuindo um prefab para a variavel hospedeira
+        /*verificando a carta selecionada e atribuindo
+        um prefab para a variavel hospedeira*/
         switch (gameObject.tag)
         {
             case "CardTower01":
+                PlaySound(0);
                 GameConfig.currentTower = prefabTower01;
                 canCreate = true;
                 break;
             case "CardTower02":
+                PlaySound(0);
                 GameConfig.currentTower = prefabTower02;
                 canCreate = true;
                 break;
             case "CardTower03":
+                PlaySound(0);
                 GameConfig.currentTower = prefabTower03;
                 canCreate = true;
                 break;
             case "CardTower04":
+                PlaySound(0);
                 GameConfig.currentTower = prefabTower04;
                 canCreate = true;
                 break;
@@ -91,6 +106,15 @@ public class Cards : MonoBehaviour
                 GameConfig.currentTower = null;
                 canMoveTower = true;
                 break;
+            case "Untagged":
+                PlaySound(1);
+                break;
         }
+    }
+
+    void PlaySound(int a)
+    {
+        audioS.clip = clips[a];
+        audioS.Play();
     }
 }

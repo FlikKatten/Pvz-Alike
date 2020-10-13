@@ -4,41 +4,30 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float lifeTime, coroutineTime;
+    public float lifeTime, fakeSystemTime, coroutineTime;
     public int coinValue;
     public Material[] materials;
+    public static bool fakeCoin;
 
     private Renderer coinRenderer;
-
-    public static bool fakeCoin;
+    private AudioSource audioS;
 
     void Start()
     {
+        audioS = GetComponent<AudioSource>();
         coinRenderer = GetComponent<Renderer>();
-        StartCoroutine(DestroyCoin(lifeTime));
+        Destroy(gameObject, lifeTime);
     }
 
     void Update()
     {
         if (fakeCoin)
         {
-            StartCoroutine(FakeSystem(coroutineTime));
+            StartCoroutine(FakeSystem(fakeSystemTime));
         }
     }
 
-    IEnumerator DestroyCoin(float f)
-    {
-        yield return new WaitForSeconds(f);
-
-        DestroyReact();
-    }
-
-    void OnMouseDown()
-    {
-        DestroyReact();
-    }
-
-    void DestroyReact()
+    void OnDestroy()
     {
         if (fakeCoin)
         {
@@ -48,8 +37,20 @@ public class Coin : MonoBehaviour
         {
             InterfaceController.moneyCount += coinValue;
         }
+    }
+
+    IEnumerator DestroyCoin(float f)
+    {
+        audioS.Play();
+
+        yield return new WaitForSeconds(f);
 
         Destroy(gameObject);
+    }
+
+    void OnMouseDown()
+    {
+        StartCoroutine(DestroyCoin(coroutineTime));
     }
 
     IEnumerator FakeSystem(float f)
