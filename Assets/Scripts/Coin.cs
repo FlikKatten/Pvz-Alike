@@ -20,23 +20,12 @@ public class Coin : MonoBehaviour
     }
 
     void Update()
-    {
-        if (fakeCoin)
-        {
-            StartCoroutine(FakeSystem(fakeSystemTime));
-        }
-    }
+    {if (fakeCoin){StartCoroutine(FakeSystem(fakeSystemTime));}}
 
     void OnDestroy()
     {
-        if (fakeCoin)
-        {
-            InterfaceController.moneyCount -= coinValue;
-        }
-        else
-        {
-            InterfaceController.moneyCount += coinValue;
-        }
+        if (fakeCoin){InterfaceController.moneyCount -= coinValue;}
+        else{InterfaceController.moneyCount += coinValue;}
     }
 
     IEnumerator DestroyCoin(float f)
@@ -48,10 +37,7 @@ public class Coin : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnMouseDown()
-    {
-        StartCoroutine(DestroyCoin(coroutineTime));
-    }
+    void OnMouseDown(){ StartCoroutine(DestroyCoin(coroutineTime)); }
 
     IEnumerator FakeSystem(float f)
     {

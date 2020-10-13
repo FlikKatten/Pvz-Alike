@@ -7,13 +7,7 @@ public class CoinGenerator : MonoBehaviour
     public GameObject coinPrefab;
     public float firstInvoke, loopInvoke;
 
-    void Start()
-    {
-        InvokeRepeating("CoinMaker", firstInvoke, loopInvoke);
-    }
+    void Start(){InvokeRepeating("CoinMaker", firstInvoke, loopInvoke);}
 
-    void CoinMaker()
-    {
-        Instantiate(coinPrefab, transform.position, transform.rotation);
-    }
+    void CoinMaker(){Instantiate(coinPrefab, transform.position, transform.rotation);}
 }

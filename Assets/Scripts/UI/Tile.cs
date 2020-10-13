@@ -9,19 +9,12 @@ public class Tile : MonoBehaviour
     private AudioSource audioS;
     private bool isEmpty = true;
 
-    void Start()
-    {
-        audioS = GetComponent<AudioSource>();
-    }
+    void Start(){audioS = GetComponent<AudioSource>();}
 
     void OnCollisionEnter(Collision c)
     {
         isEmpty = false;
-
-        if(c.gameObject.tag == "Bullet")
-        {
-            Destroy(c.gameObject);
-        }
+        if(c.gameObject.tag == "Bullet"){Destroy(c.gameObject);}
     }
 
     void OnCollisionExit(){isEmpty = true;}
@@ -37,7 +30,8 @@ public class Tile : MonoBehaviour
 
                 if (tempPrice <= InterfaceController.moneyCount)
                 {
-                    Instantiate(GameConfig.currentTower, transform.position, GameConfig.currentTower.transform.rotation);
+                    Instantiate(GameConfig.currentTower, transform.position, 
+                        GameConfig.currentTower.transform.rotation);
                     InterfaceController.moneyCount -= tempPrice;
                     GameConfig.currentTower = null;
                     PlaySound(0);
@@ -53,10 +47,7 @@ public class Tile : MonoBehaviour
                 Towers.tempTowerToMove = null;
                 PlaySound(0);
             }
-            else
-            {
-                PlaySound(1);
-            }
+            else{PlaySound(1);}
         }
     }
 

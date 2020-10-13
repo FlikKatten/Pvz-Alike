@@ -10,10 +10,7 @@ public class CannonBall : MonoBehaviour
     private Vector3 attackPosition;
     private AudioSource audioS;
 
-    void Start()
-    {
-        audioS = GetComponent<AudioSource>();
-    }
+    void Start(){audioS = GetComponent<AudioSource>();}
 
     void Update()
     {
@@ -36,12 +33,10 @@ public class CannonBall : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03" || c.gameObject.tag == "Cop")
+        if (c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03" 
+            || c.gameObject.tag == "Cop")
         {
-            if(c.gameObject.tag == "Cop")
-            {
-                Destroy(c.gameObject.transform.parent.gameObject);
-            }
+            if(c.gameObject.tag == "Cop"){Destroy(c.gameObject.transform.parent.gameObject);}
 
             Destroy(c.gameObject);
             currentTarget = null;
@@ -51,5 +46,6 @@ public class CannonBall : MonoBehaviour
             InterfaceController.scoreCount += 25;
             Destroy(gameObject);
         }
+        else if(c.gameObject.tag == "Tile"){Destroy(gameObject);}
     }
 }

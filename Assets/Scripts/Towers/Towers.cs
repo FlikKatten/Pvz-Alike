@@ -9,10 +9,7 @@ public class Towers : MonoBehaviour
 
     private AudioSource audioS;
 
-    void Start()
-    {
-        audioS = GetComponent<AudioSource>();
-    }
+    void Start(){audioS = GetComponent<AudioSource>();}
 
     void OnMouseDown()
     {

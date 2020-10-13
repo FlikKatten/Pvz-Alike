@@ -73,7 +73,6 @@
     <Compile Include="Assets\Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\Towers\Towers.cs" />
     <Compile Include="Assets\Scripts\UI\Cards.cs" />
-    <Compile Include="Assets\Scripts\UI\ChangeColorText.cs" />
     <Compile Include="Assets\Scripts\UI\InterfaceController.cs" />
     <Compile Include="Assets\Scripts\UI\Tile.cs" />
     <None Include="Assets\Fonts\Roboto\LICENSE.txt" />

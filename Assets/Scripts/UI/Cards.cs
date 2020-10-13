@@ -12,15 +12,14 @@ public class Cards : MonoBehaviour
     
     private AudioSource audioS;
 
-    void Start()
-    {
-        audioS = GetComponent<AudioSource>();
-    }
+    void Start(){audioS = GetComponent<AudioSource>();}
 
     void Update()
     {
         if (blockCard)
         {
+            /*criando um sistema para determinar quais cartas
+             serão bloqueadas*/
             int i = Random.Range(0, 4);
 
             switch (i)

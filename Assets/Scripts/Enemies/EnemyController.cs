@@ -18,10 +18,7 @@ public class EnemyController : MonoBehaviour
     {
         audioS = GetComponent<AudioSource>();
 
-        if (gameObject.tag == "Enemy01")
-        {
-            ghostRenderer.material = materials[0];
-        }
+        if (gameObject.tag == "Enemy01"){ghostRenderer.material = materials[0];}
     }
 
     void Update()
@@ -82,10 +79,7 @@ public class EnemyController : MonoBehaviour
     {
         if (c.gameObject.tag == "Tower" || c.gameObject.tag == "Shield")
         {
-            if (gameObject.tag == "Enemy01")
-            {
-                ghostRenderer.material = materials[1];
-            }
+            if (gameObject.tag == "Enemy01"){ghostRenderer.material = materials[1];}
         }
     }
 
@@ -93,12 +87,8 @@ public class EnemyController : MonoBehaviour
     {
         if (gameObject.tag == "Enemy01")
         {
-            if (c.gameObject.tag == "Tower")
-            {
-                Attack(c.gameObject);
-            }
-
-            ghostRenderer.material = materials[0];
+            if (c.gameObject.tag == "Tower"){Attack(c.gameObject);
+            }ghostRenderer.material = materials[0];
         }
     }
 

@@ -9,15 +9,12 @@ public class PowerUpController : MonoBehaviour
 
     private AudioSource audioS;
 
-    void Start()
-    {
-        audioS = GetComponent<AudioSource>();
-    }
+    void Start(){audioS = GetComponent<AudioSource>();}
 
     void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "Enemy01"
-            || c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03")
+        if (c.gameObject.tag == "Enemy01" || c.gameObject.tag == "Enemy02" 
+            || c.gameObject.tag == "Enemy03")
         {
             prefab.SetActive(true);
 
@@ -28,23 +25,18 @@ public class PowerUpController : MonoBehaviour
                 InterfaceController.scoreCount += 25;
                 StartCoroutine(LaserControl());
             }
-            else
-            {
-                PlaySound(0);
-            }
+            else{PlaySound(0);}
         }
     }
 
     void OnTriggerExit(Collider c)
     {
-        if (c.gameObject.tag == "Enemy01"
-            || c.gameObject.tag == "Enemy02" || c.gameObject.tag == "Enemy03")
-        {
-            prefab.SetActive(false);
-        }
+        if (c.gameObject.tag == "Enemy01" || c.gameObject.tag == "Enemy02" 
+            || c.gameObject.tag == "Enemy03")
+        {prefab.SetActive(false);}
     }
 
-    IEnumerator LaserControl()
+    IEnumerator LaserControl() 
     {
         yield return new WaitForSeconds(0.5f);
         prefab.SetActive(false);

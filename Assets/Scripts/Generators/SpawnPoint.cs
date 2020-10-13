@@ -7,10 +7,7 @@ public class SpawnPoint : MonoBehaviour
     public GameObject[] enemiesPrefab;
     public float coroutineMaxTime;
 
-    void Start()
-    {
-        StartCoroutine(SpawnEnemies(coroutineMaxTime));
-    }
+    void Start(){StartCoroutine(SpawnEnemies(coroutineMaxTime));}
 
     IEnumerator SpawnEnemies(float f)
     {
