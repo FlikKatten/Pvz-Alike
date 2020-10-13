@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d299a849eecc7b8419a00d5822d5aa54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.2
   destroyTime: 1
   playerZone: 8
   bulletLoopTime: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
     type: 3}
   bulletPrefab: {fileID: 0}
   dropPosition: {fileID: 0}
+  explosionPrefab: {fileID: 0}
 --- !u!65 &7742593291118828814
 BoxCollider:
   m_ObjectHideFlags: 0

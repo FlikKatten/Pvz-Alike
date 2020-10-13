@@ -1,11 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cards : MonoBehaviour
 {
     public GameObject prefabTower01, prefabTower02, prefabTower03, prefabTower04;
-    public static bool canMoveTower, canCreate;
+    public static bool canMoveTower, canCreate, blockCard;
+    public float coroutineTime;
+
+    void Update()
+    {
+        if (blockCard)
+        {
+            int i = Random.Range(0, 4);
+
+            switch (i)
+            {
+                case 1:
+                    if (gameObject.tag == "CardTower01")
+                    {
+                        StartCoroutine(ChangeTag(coroutineTime, gameObject));
+                    }
+                    break;
+                case 2:
+                    if (gameObject.tag == "CardTower02")
+                    {
+                        StartCoroutine(ChangeTag(coroutineTime, gameObject));
+                    }
+                    break;
+                case 3:
+                    if (gameObject.tag == "CardTower03")
+                    {
+                        StartCoroutine(ChangeTag(coroutineTime, gameObject));
+                    }
+                    break;
+                case 4:
+                    if (gameObject.tag == "CardTower04")
+                    {
+                        StartCoroutine(ChangeTag(coroutineTime, gameObject));
+                    }
+                    break;
+            }
+        }
+    }
+
+    IEnumerator ChangeTag(float f, GameObject gb)
+    {
+        Image image= this.GetComponent<Image>();
+        var tempColor = image.color;
+        tempColor.a = 0.5f;
+        image.color = tempColor;
+
+
+        string originalTag = gameObject.tag;
+        gameObject.tag = "Untagged";
+
+        yield return new WaitForSeconds(f);
+
+        gameObject.tag = originalTag;
+
+        tempColor.a = 1f;
+        image.color = tempColor;
+
+        blockCard = false;
+    }
 
     void OnMouseDown()
     {

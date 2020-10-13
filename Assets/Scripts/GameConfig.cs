@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameConfig : MonoBehaviour
 {
     public static GameObject currentTower;
+    public static float enemyLife, cannonBallDamage;
     
     void Start()
     {

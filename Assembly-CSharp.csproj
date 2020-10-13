@@ -63,14 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CannonBall.cs" />
     <Compile Include="Assets\Scripts\Coin.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\GameConfig.cs" />
+    <Compile Include="Assets\Scripts\Generators\CannonController.cs" />
     <Compile Include="Assets\Scripts\Generators\CoinGenerator.cs" />
     <Compile Include="Assets\Scripts\Generators\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\Towers\Towers.cs" />
     <Compile Include="Assets\Scripts\UI\Cards.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeColorText.cs" />
     <Compile Include="Assets\Scripts\UI\InterfaceController.cs" />
     <Compile Include="Assets\Scripts\UI\Tile.cs" />
     <None Include="Assets\Fonts\Roboto\LICENSE.txt" />

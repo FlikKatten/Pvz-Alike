@@ -19,6 +19,7 @@ TagManager:
   - Laser
   - ShieldController
   - LaserController
+  - Cop
   layers:
   - Default
   - TransparentFX
